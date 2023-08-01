@@ -32,8 +32,13 @@ nomeContato.addEventListener("keyup", function(e) {
     }
 })
 
-
 function addLinha() {
+
+    if (Nomes.includes(nomeContato.value)) {
+        alert(`O nome ${nomeContato.value} já foi inserido`)
+    } else {
+        Nomes.push(nomeContato.value)
+        Telefones.push(parseFloat(seuTelefone.value))
 
         var linha = `<tr>`
         linha += `<td>${nomeContato.value}</td>`
@@ -41,16 +46,14 @@ function addLinha() {
         linha += `</tr>`    
     
         linhas += linha
-        
+
+    }
         nomeContato.value = ""
         seuTelefone.value = ""
     }
-
-
 
 function Tabela() {
     const corpoTabela = document.querySelector("tbody")
     corpoTabela.innerHTML = linhas
 }
-
 
